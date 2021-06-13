@@ -5,13 +5,10 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "Liberation Mono:pixelsize=12:antialias=true:autohint=true";
-/* Spare fonts */
+static char *font = "Hack:pixelsize=14:antialias=true:autohint=true";
 static char *font2[] = {
-/*	"Inconsolata for Powerline:pixelsize=12:antialias=true:autohint=true", */
-/*	"Hack Nerd Font Mono:pixelsize=11:antialias=true:autohint=true", */
+    "JoyPixels:pixelsize=14:antialias=true:autohint=true"
 };
-
 static int borderpx = 2;
 
 /*
@@ -98,9 +95,7 @@ char *termname = "st-256color";
  *	stty tabs
  */
 unsigned int tabspaces = 8;
-
-/* bg opacity */
-float alpha = 0.8;
+float alpha = 0.7; /* bg opacity */
 
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
@@ -129,7 +124,7 @@ static const char *colorname[] = {
 	/* more colors can be added after 255 to use with DefaultXX */
 	"#cccccc",
 	"#555555",
-	"black",
+    "black",
 };
 
 
@@ -198,22 +193,26 @@ static MouseShortcut mshortcuts[] = {
 #define TERMMOD (ControlMask|ShiftMask)
 
 static Shortcut shortcuts[] = {
-	/* mask                 keysym          function        argument */
-	{ XK_ANY_MOD,           XK_Break,       sendbreak,      {.i =  0} },
-	{ ControlMask,          XK_Print,       toggleprinter,  {.i =  0} },
-	{ ShiftMask,            XK_Print,       printscreen,    {.i =  0} },
-	{ XK_ANY_MOD,           XK_Print,       printsel,       {.i =  0} },
-	{ TERMMOD,              XK_Prior,       zoom,           {.f = +1} },
-	{ TERMMOD,              XK_Next,        zoom,           {.f = -1} },
-	{ TERMMOD,              XK_Home,        zoomreset,      {.f =  0} },
-	{ TERMMOD,              XK_C,           clipcopy,       {.i =  0} },
-	{ TERMMOD,              XK_V,           clippaste,      {.i =  0} },
-	{ TERMMOD,              XK_Y,           selpaste,       {.i =  0} },
-	{ ShiftMask,            XK_Insert,      selpaste,       {.i =  0} },
-	{ TERMMOD,              XK_Num_Lock,    numlock,        {.i =  0} },
-    { MODKEY,               XK_l,           copyurl,        {.i =  0} },
-	{ ShiftMask,            XK_Page_Up,     kscrollup,      {.i = -1} },
-	{ ShiftMask,            XK_Page_Down,   kscrolldown,    {.i = -1} },
+    /* mask                 keysym          function        argument */
+    { XK_ANY_MOD,           XK_Break,       sendbreak,      {.i =  0} },
+    { ControlMask,          XK_Print,       toggleprinter,  {.i =  0} },
+    { ShiftMask,            XK_Print,       printscreen,    {.i =  0} },
+    { XK_ANY_MOD,           XK_Print,       printsel,       {.i =  0} },
+    { TERMMOD,              XK_Prior,       zoom,           {.f = +1} },
+    { TERMMOD,              XK_equal,       zoom,           {.f = +1} },
+    { TERMMOD,              XK_Next,        zoom,           {.f = -1} },
+    { TERMMOD,              XK_minus,       zoom,           {.f = -1} },
+    { TERMMOD,              XK_Home,        zoomreset,      {.f =  0} },
+    { TERMMOD,              XK_C,           clipcopy,       {.i =  0} },
+    { MODKEY,               XK_C,           clipcopy,       {.i =  0} },
+    { ControlMask,          XK_Insert,      clipcopy,       {.i =  0} },
+    { TERMMOD,              XK_V,           clippaste,      {.i =  0} },
+    { MODKEY,               XK_V,           clippaste,      {.i =  0} },
+    { ShiftMask,            XK_Insert,      clippaste,      {.i =  0} },
+    { TERMMOD,              XK_Num_Lock,    numlock,        {.i =  0} },
+    { MODKEY,               XK_l,           copyurl,        {.i =  0} }, 
+	{ XK_ANY_MOD,           XK_Page_Up,     kscrollup,      {.i = -1} },
+	{ XK_ANY_MOD,           XK_Page_Down,   kscrolldown,    {.i = -1} },
 };
 
 /*

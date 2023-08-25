@@ -7,7 +7,7 @@
  */
 static char *font = "Hack:pixelsize=14:antialias=true:autohint=true";
 static char *font2[] = {
-    "JoyPixels:pixelsize=15:antialias=true:autohint=true"
+    "JoyPixels:pixelsize=14:antialias=true:autohint=true"
 };
 static int borderpx = 2;
 
